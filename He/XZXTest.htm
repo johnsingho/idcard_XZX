@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>新中新身份证、IC卡封装</title>
+
+<script>
+/*
+  function FindReader_onclick()
+  {
+  	var str;
+  	str = synCardOcx.FindReader();
+  	if (str > 0)
+  	{
+  		if(str>1000)
+  		{
+  			str =document.all['S1'].value+ "读卡器连接在USB " + str+"\r\n" ;
+  		}
+  		else
+  		{
+  			str =document.all['S1'].value+ "读卡器连接在COM " + str+"\r\n" ;
+  		}
+  	}
+  	else
+  	{
+  		str =document.all['S1'].value+ "没有找到读卡器\r\n";
+  	}
+  	document.all['S1'].value=str;
+  }
+*/
+
+
+
+//封装调用新中新A16D HF读卡器
+function XZX_CardReader() {
+    var self = this;
+	self.cardOcx = null;
+	
+	function ExtractHex(cardHex){
+		var pos = cardHex.indexOf(',');
+		if(pos<0){
+			return null;
+		}
+		try{
+			var cardType = parseInt(cardHex.substring(pos+1), 10);
+			if(8!=cardType){
+				//只支持M1卡，不要把银行卡放上去
+				return null;
+			}
+			return cardHex.substring(0,pos);
+		}catch(e){
+			//invalid hex card no
+		}
+		return null;
+	}
+	
+	//KQXT中的SCardSNR是8个字符的16进制字符串
+	//但是要翻转过来
+	function FlipHex(hexStr){
+		var leng = hexStr.length;
+		var snew = "";
+		for(var i=leng/2-1; i>=0; i--){
+			snew += hexStr.substr(i*2, 2);
+		}
+		return snew;
+	}
+	function FromHex(hexStr){
+		return parseInt(hexStr,16);
+	}
+	
+	//初始化
+	self.Init = function(objOcx){
+		if(!objOcx || !objOcx.FindReader){
+			alert("身份证读卡器没有连接，或SynCardOcx.cab没有正常工作！\r\n只能使用IE浏览器！");
+			return;
+		}
+		self.cardOcx = objOcx;
+		self.cardOcx.SetPhotoPath(1,"d:\\");
+		self.cardOcx.SetPhotoType(4);
+		self.cardOcx.M1DataType=1; //为1返回16进制的IC卡卡号, 为0则10进制
+	}
+	
+	//定时读卡
+	self.SetLoopRead = function(callback, nInterval){
+		if(!self.cardOcx || !callback){
+			alert("设置循环读取失败，参数有误！");
+			return;
+		}
+		//读卡定时器
+		setInterval(function(){
+			var cardNo = self.Read_IDIC_Card();
+			callback(cardNo);
+		}, (nInterval || 1000));
+	}
+	
+	//手动读卡
+	self.Read_IDIC_Card = function(){
+		//try IC
+		var str= self.cardOcx.M1Reset();
+		//这里返回的是IC卡的SNR,可用于查询KQXT的Customer表
+		var hexStr = ExtractHex(str);
+		if(hexStr && hexStr.length>=8){
+			hexStr = FlipHex(hexStr);
+			var res = FromHex(hexStr);
+			return res.toString();
+		}
+		//try ID card
+		var nRet = self.cardOcx.ReadCardMsg();
+		if(nRet != 0){
+			return "";
+		}
+		return self.cardOcx.CardNo;
+	}
+}
+
+//全局对象
+var xzx_Reader = null;
+
+function load(){
+	xzx_Reader = new XZX_CardReader();
+	xzx_Reader.Init(synCardOcx);	
+	xzx_Reader.SetLoopRead(function(cardNo){
+		var sOld = document.getElementById("txtCardNo").value;
+        if(cardNo===sOld || 0==cardNo.length){
+            return;
+        }
+        document.getElementById("txtCardNo").value = cardNo;
+        document.getElementById("lbLen").innerText = cardNo ? cardNo.length : 0;
+	});
+	
+}
+
+
+function btnManualRead_onclick(){
+    var cardNo = xzx_Reader.Read_IDIC_Card();
+    document.getElementById("txtCardNo").value = cardNo;
+    document.getElementById("lbLen").innerText = cardNo ? cardNo.length : 0;
+}
+</script>
+
+</head>
+<body leftmargin="0" topmargin="0" onLoad="load();">
+<p>
+<!--新中新电子读卡器OCX-->
+<object classid="clsid:46E4B248-8A41-45C5-B896-738ED44C1587" id="synCardOcx" codeBase="SynCardOcx.CAB#version=1,0,0,1" width="0" height="0" >
+</object>
+</p>
+<form method="POST" name="form1">
+<label for="">读取的卡号：</label>
+<input type="text" maxlength="18" id="txtCardNo" />
+<span>卡号长度：<label id="lbLen"></label></span>
+<p>
+    <input type="button" value="手动读取" name="btnManualRead" onclick="btnManualRead_onclick()">
+</p>
+
+
+</form>
+
+</body>
+
+</html>
