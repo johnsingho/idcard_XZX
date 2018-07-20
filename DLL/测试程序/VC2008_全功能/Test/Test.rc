@@ -1,0 +1,329 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 中文(中华人民共和国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#include ""res\\Test.rc2""  // 非 Microsoft Visual C++ 编辑的资源\r\n"
+    "#include ""l.CHS\\afxres.rc""      // 标准组件\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\Test.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 170, 62
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于 Test"
+FONT 9, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,21,20
+    LTEXT           "Test，1.0 版",IDC_STATIC,42,14,114,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2013",IDC_STATIC,42,26,114,8
+    DEFPUSHBUTTON   "确定",IDOK,113,41,50,14,WS_GROUP
+END
+
+IDD_TEST_DIALOG DIALOGEX 0, 0, 487, 452
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "DKQ-116D/A16(DU/DHF/DUFO/DUFE)测试程序"
+FONT 9, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    LISTBOX         IDC_LIST1,7,7,8,9,LBS_SORT | LBS_NOINTEGRALHEIGHT | LBS_DISABLENOSCROLL | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_STATIC2,"Static",SS_BLACKFRAME | SS_RIGHTJUST,409,11,61,72
+    CONTROL         "",IDC_STATIC3,"Static",SS_BLACKFRAME | SS_RIGHTJUST | SS_REALSIZEIMAGE,409,96,61,71
+    GROUPBOX        "二代证功能测试",IDC_STATIC,7,173,248,89
+    PUSHBUTTON      "寻找读卡器",IDC_BUTFINDREADER,16,185,61,12
+    PUSHBUTTON      "获得SAM状态",IDC_BUTGETSAMSTATE,16,200,61,12
+    PUSHBUTTON      "获得SAMID",IDC_BUTGETSAMID,16,215,61,12
+    PUSHBUTTON      "复位SAM(慎用)",IDC_BUTRESTSAM,16,230,61,12
+    LTEXT           "最大通讯字节(24~255)：",IDC_STATIC,82,182,43,15
+    EDITTEXT        IDC_EDIT_MAX,127,185,25,12,ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "设置最大通讯字节",IDC_BUTSETMAX,170,185,76,12
+    PUSHBUTTON      "寻卡(单步)",IDC_BUTFINDCARD,85,200,76,12
+    PUSHBUTTON      "选卡(单步)",IDC_BUTSELECTCARD,170,200,76,12
+    PUSHBUTTON      "读卡(单步不含指纹)",IDC_BUTREADCARD,85,215,76,12
+    PUSHBUTTON      "读卡(完整过程不含指纹)",IDC_BUTREADCARDEX,170,215,76,12
+    PUSHBUTTON      "开始连续读卡",IDC_BUTSTARTREAD,85,246,76,12
+    PUSHBUTTON      "停止连续读卡",IDC_BUTSTOPREAD,170,246,76,12
+    GROUPBOX        "读卡器生产信息设置(/DHF/DUFO/DUFE)，备注16字节，其余8字节",IDC_STATIC,261,176,217,74
+    LTEXT           "厂家信息：",IDC_STATIC,273,192,38,10
+    EDITTEXT        IDC_EDIT_FAC1,309,191,93,12,ES_AUTOHSCROLL
+    LTEXT           "读卡器版本：",IDC_STATIC,265,206,41,11
+    EDITTEXT        IDC_EDIT_FAC2,309,205,93,12,ES_AUTOHSCROLL
+    LTEXT           "生产编号：",IDC_STATIC,273,221,38,10
+    EDITTEXT        IDC_EDIT_FAC3,309,220,93,12,ES_AUTOHSCROLL
+    LTEXT           "生产备注：",IDC_STATIC,273,235,34,11
+    EDITTEXT        IDC_EDIT_FAC4,309,234,93,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "读生产信息",IDC_BUTREADFAC,410,194,63,12
+    PUSHBUTTON      "写生产信息",IDC_BUTWRITEFAC,410,214,63,12,WS_DISABLED
+    GROUPBOX        "读卡器用户自定义信息设置(/DHF/DUFO/DUFE)，40字节",IDC_STATIC,7,337,247,62
+    LTEXT           "自定义信息：",IDC_STATIC,12,350,42,10
+    EDITTEXT        IDC_EDIT_USERINFO,54,349,195,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "读自定义信息",IDC_BUTREADERUSERINFO,120,365,61,12
+    PUSHBUTTON      "写自定义信息",IDC_BUTWRITEUSERINFO,188,365,61,12
+    PUSHBUTTON      "退出",IDCANCEL,177,432,74,13
+    GROUPBOX        "指纹采集功能测试",IDC_STATIC,7,264,248,71
+    PUSHBUTTON      "初始化指纹采集仪",IDC_BUTFINDFP,16,275,61,12
+    PUSHBUTTON      "关闭指纹采集仪",IDC_BUTCLOSEFP,16,289,61,12
+    PUSHBUTTON      "获得接口说明",IDC_BUTGETDESC,16,319,61,12
+    PUSHBUTTON      "获得接口版本",IDC_BUTGETVER,16,304,61,12
+    LTEXT           "身份证照片",IDC_STATIC,423,0,42,11
+    LTEXT           "指纹",IDC_STATIC,431,85,20,8
+    PUSHBUTTON      "准备采集一帧图像",IDC_BUTBEGINCAP,85,275,76,12
+    PUSHBUTTON      "采集一帧图像",IDC_BUTGETFPRAW,85,290,76,12
+    PUSHBUTTON      "采集一帧BMP格式图像",IDC_BUTGETFPBMP,85,304,76,12
+    PUSHBUTTON      "提取指纹图像特征",IDC_BUTFP_EXT,170,275,76,12,WS_DISABLED
+    PUSHBUTTON      "获取指纹图像质量值",IDC_BUTFP_GETQUA,170,289,76,12,WS_DISABLED
+    PUSHBUTTON      "设置对比度",IDC_BUTFP_CON,198,319,48,12
+    PUSHBUTTON      "设置亮度",IDC_BUTFP_BRI,198,304,48,12
+    LTEXT           "语音命令：",IDC_STATIC,17,383,36,11
+    COMBOBOX        IDC_COMBO1,53,381,127,74,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "发送语音命令",IDC_BUTSOUND,188,381,61,12
+    PUSHBUTTON      "清除所有信息",IDC_BUTCLEARMES,99,432,73,13
+    CONTROL         "",IDC_LIST2,"SysListView32",LVS_REPORT | LVS_EDITLABELS | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,393,161
+    PUSHBUTTON      "读卡(完整过程含指纹)",IDC_BUTREADCARDEX2,171,232,76,12
+    PUSHBUTTON      "读卡(单步含指纹)",IDC_BUTREADCARD2,85,231,76,12
+    CONTROL         "连续读卡含指纹",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,248,59,10
+    PUSHBUTTON      "结束采集一帧图像",IDC_BUTENDCAP,85,319,76,12
+    GROUPBOX        "M1卡功能测试",IDC_STATIC,261,254,219,191
+    PUSHBUTTON      "M1卡复位",IDC_M1RESET,267,266,35,12
+    EDITTEXT        IDC_EDIT_OLDPASS0,291,299,14,12,ES_AUTOHSCROLL
+    LTEXT           "原密钥",IDC_STATIC,267,301,22,10
+    LTEXT           "新密钥",IDC_STATIC,267,315,22,9
+    EDITTEXT        IDC_EDIT_NEWPASS0,291,313,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_OLDPASS2,326,299,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_NEWPASS2,326,313,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_OLDPASS3,344,299,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_NEWPASS3,344,313,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_OLDPASS4,362,299,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_NEWPASS4,362,313,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_OLDPASS5,380,299,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_NEWPASS5,380,313,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SECNO,291,283,52,12,ES_AUTOHSCROLL
+    LTEXT           "扇区号",IDC_STATIC,267,284,22,10
+    EDITTEXT        IDC_EDIT_BLOCKNO,313,333,30,12,ES_AUTOHSCROLL
+    LTEXT           "块号(0~3)",IDC_STATIC,274,335,38,10
+    LTEXT           "数据",IDC_STATIC,274,350,16,10
+    EDITTEXT        IDC_EDIT_DATA0,291,349,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_DATA8,291,364,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_DATA1,309,349,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_DATA9,309,364,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_DATA2,327,349,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_DATA10,327,364,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_DATA3,345,349,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_DATA11,345,364,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_DATA4,363,349,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_DATA12,363,364,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_DATA5,380,349,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_DATA13,380,364,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_DATA6,398,349,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_DATA14,398,364,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_DATA7,417,349,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_DATA15,417,364,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_OLDPASS1,308,299,14,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_NEWPASS1,308,313,14,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "M1卡修改A密钥",IDC_BUTTON_CHANGA,347,281,60,13
+    PUSHBUTTON      "M1卡修改B密钥",IDC_BUTTON_CHANGB,413,281,60,13
+    PUSHBUTTON      "全0",IDC_BUTTON3,398,297,20,13
+    PUSHBUTTON      "全0",IDC_BUTTON4,399,313,20,13
+    PUSHBUTTON      "全FF",IDC_BUTTON5,421,297,20,13
+    PUSHBUTTON      "全FF",IDC_BUTTON6,421,313,20,13
+    PUSHBUTTON      "原密钥新密要互换",IDC_BUTTON7,444,297,30,29,BS_MULTILINE
+    PUSHBUTTON      "M1卡停卡",IDC_M1HALT,307,266,35,12
+    PUSHBUTTON      "M1卡密钥A验证",IDC_BUTTON_AUTHENA,347,265,60,13
+    PUSHBUTTON      "M1卡密钥B验证",IDC_BUTTON_AUTHENB,413,265,60,13
+    PUSHBUTTON      "读块数据",IDC_BUTTON_READ,436,349,38,13
+    PUSHBUTTON      "写块数据",IDC_BUTTON_WRITE,436,364,38,13
+    PUSHBUTTON      "数据全0",IDC_BUTTON9,345,333,29,13
+    PUSHBUTTON      "数据全FF",IDC_BUTTON10,377,333,29,13
+    PUSHBUTTON      "00~FF",IDC_BUTTON11,409,333,29,13
+    PUSHBUTTON      "FF~00",IDC_BUTTON12,441,333,29,13
+    PUSHBUTTON      "M1单次读卡",IDC_BUTTON13,266,379,45,13
+    PUSHBUTTON      "M1开始连续读卡",IDC_BUTTON14,314,379,72,13
+    PUSHBUTTON      "M1单次写卡",IDC_BUTTON15,266,395,45,13
+    PUSHBUTTON      "M1开始连续写卡",IDC_BUTTON16,314,395,72,13
+    PUSHBUTTON      "M1停止连续读卡",IDC_BUTTON17,391,379,72,13
+    PUSHBUTTON      "M1停止连续写卡",IDC_BUTTON18,391,395,72,13
+    PUSHBUTTON      "M1读所有块",IDC_BUTTON19,266,410,45,13
+    PUSHBUTTON      "M1写所有块",IDC_BUTTON20,266,426,45,13
+    PUSHBUTTON      "开始M1二代证交替读卡",IDC_BUTTON1,99,415,74,13
+    PUSHBUTTON      "停止M1二代证交替读卡",IDC_BUTTON2,177,415,75,13
+    EDITTEXT        IDC_EDIT_BRI,170,304,25,12,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_EDIT_CON,170,320,25,12,ES_AUTOHSCROLL | ES_NUMBER
+    PUSHBUTTON      "M1开始连续读所有块",IDC_BUTTON21,314,410,72,13
+    PUSHBUTTON      "M1开始连续写所有快",IDC_BUTTON22,314,426,72,13
+    PUSHBUTTON      "M1停止连续读所有快",IDC_BUTTON23,391,410,72,13
+    PUSHBUTTON      "M1停止连续写所有快",IDC_BUTTON24,391,426,72,13
+    EDITTEXT        IDC_EDIT1,13,416,32,11,ES_AUTOHSCROLL
+    GROUPBOX        "连续读写卡次数",IDC_STATIC,7,403,87,42
+    PUSHBUTTON      "设定",IDC_BUTTON8,49,415,35,13
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080403a8"
+        BEGIN
+            VALUE "CompanyName", "TODO: <公司名>"
+            VALUE "FileDescription", "TODO: <文件说明>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "Test.exe"
+            VALUE "LegalCopyright", "TODO: (C) <公司名>。保留所有权利。"
+            VALUE "OriginalFilename", "Test.exe"
+            VALUE "ProductName", "TODO: <产品名>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 936
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 163
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 55
+    END
+
+    IDD_TEST_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 480
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 445
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_ABOUTBOX            "关于 Test(&A)..."
+END
+
+#endif    // 中文(中华人民共和国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE 4, 2
+#pragma code_page(936)
+#include "res\Test.rc2"  // 非 Microsoft Visual C++ 编辑的资源
+#include "l.CHS\afxres.rc"      // 标准组件
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
